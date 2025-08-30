@@ -1,4 +1,4 @@
-import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals';
+import { onCLS, onINP, onFCP, onLCP, onTTFB } from 'web-vitals';
 
 // Function to send metrics to analytics service
 const sendToAnalytics = (metric) => {
@@ -26,22 +26,22 @@ const sendToAnalytics = (metric) => {
 
 // Initialize web vitals monitoring
 export const initWebVitals = () => {
-  getCLS(sendToAnalytics);
-  getFID(sendToAnalytics);
-  getFCP(sendToAnalytics);
-  getLCP(sendToAnalytics);
-  getTTFB(sendToAnalytics);
+  onCLS(sendToAnalytics);
+  onINP(sendToAnalytics);
+  onFCP(sendToAnalytics);
+  onLCP(sendToAnalytics);
+  onTTFB(sendToAnalytics);
 };
 
 // Individual metric getters for custom handling
 export const getWebVitals = () => {
   const vitals = {};
   
-  getCLS((metric) => { vitals.cls = metric; });
-  getFID((metric) => { vitals.fid = metric; });
-  getFCP((metric) => { vitals.fcp = metric; });
-  getLCP((metric) => { vitals.lcp = metric; });
-  getTTFB((metric) => { vitals.ttfb = metric; });
+  onCLS((metric) => { vitals.cls = metric; });
+  onINP((metric) => { vitals.inp = metric; });
+  onFCP((metric) => { vitals.fcp = metric; });
+  onLCP((metric) => { vitals.lcp = metric; });
+  onTTFB((metric) => { vitals.ttfb = metric; });
   
   return vitals;
 };
