@@ -1,0 +1,15 @@
+<!-- SVG placeholder for project images -->
+<svg width="400" height="225" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="225" fill="#f3f4f6"/>
+  <rect x="50" y="50" width="300" height="125" rx="8" fill="#e5e7eb"/>
+  <rect x="70" y="70" width="260" height="20" fill="#d1d5db"/>
+  <rect x="70" y="100" width="180" height="15" fill="#d1d5db"/>
+  <rect x="70" y="125" width="220" height="15" fill="#d1d5db"/>
+  <circle cx="320" cy="85" r="15" fill="#3b82f6"/>
+  <text x="200" y="200" text-anchor="middle" font-family="Arial" font-size="14" fill="#6b7280">
+    Project Screenshot
+  </text>
+  <text x="200" y="215" text-anchor="middle" font-family="Arial" font-size="10" fill="#9ca3af">
+    400x225px (16:9)
+  </text>
+</svg>
