@@ -132,24 +132,6 @@ const About = () => {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @media (prefers-reduced-motion: reduce) {
-          * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-          
-          .group-hover\\:scale-110:hover {
-            transform: none !important;
-          }
-          
-          .hover\\:-translate-y-1:hover {
-            transform: none !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };

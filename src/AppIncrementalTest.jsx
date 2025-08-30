@@ -12,17 +12,14 @@ import Testimonials from './sections/Testimonials';
 import Contact from './sections/Contact';
 import './index.css';
 
-function App() {
+function AppIncrementalTest() {
   return (
-  <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 motion-safe:transition-colors motion-safe:duration-200">
-      {/* Skip link for accessibility */}
-      <a href="#home" className="skip-link">
-        Skip to content
-      </a>
-      
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200">
+      <div style={{ padding: '1rem', backgroundColor: 'green', color: 'white' }}>
+        <h1>Incremental Test: All Components</h1>
+      </div>
       <Header />
-      
-      <main className="pt-20">
+      <main>
         <Hero />
         <About />
         <Experience />
@@ -32,11 +29,10 @@ function App() {
         <Testimonials />
         <Contact />
       </main>
-      
       <Footer />
       <ScrollToTop />
     </div>
   );
 }
 
-export default App;
+export default AppIncrementalTest;

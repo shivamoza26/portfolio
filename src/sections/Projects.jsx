@@ -41,14 +41,13 @@ const Projects = () => {
       );
     }
 
-    // Filter by search term
-    if (searchTerm.trim()) {
-      const search = searchTerm.toLowerCase();
+    // Search by term
+    if (searchTerm) {
       filtered = filtered.filter(project =>
-        project.title.toLowerCase().includes(search) ||
-        project.description.toLowerCase().includes(search) ||
-        project.tech.some(tech => tech.toLowerCase().includes(search)) ||
-        project.tags.some(tag => tag.toLowerCase().includes(search))
+        project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.tech.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        project.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
       );
     }
 
@@ -199,86 +198,28 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-          <div 
-            id="projects-grid"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
-          role="tabpanel"
-          aria-labelledby={`filter-${activeFilter}`}
-        >
-          {filteredAndSortedProjects.map((project, index) => (
-            <div
-              key={`${project.title}-${activeFilter}`}
-              className={`motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${1000 + (index * 150)}ms` }}
-            >
-              <ProjectCard 
-                title={project.title}
-                description={project.description}
-                tech={project.tech}
-                github={project.github}
-                demo={project.demo}
-                image={project.image}
-              />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredAndSortedProjects.length > 0 ? (
+            filteredAndSortedProjects.map((project, index) => (
+              <div
+                key={project.id}
+                className={`motion-safe:transition-all motion-safe:duration-500 motion-safe:ease-in-out ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${100 * index}ms` }}
+              >
+                <ProjectCard {...project} />
+              </div>
+            ))
+          ) : (
+            <div className="col-span-full text-center py-12">
+              <p className="text-lg text-gray-500 dark:text-gray-400">
+                No projects match your criteria.
+              </p>
             </div>
-          ))}
-        </div>
-
-        {/* CTA Section */}
-        <div 
-          className={`text-center motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-          style={{ transitionDelay: `${1200 + (filteredProjects.length * 150)}ms` }}
-        >
-          <div className="max-w-2xl mx-auto mb-8">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-200 mb-4">
-              Want to see more of my work?
-            </h3>
-            <p className="text-gray-500 dark:text-gray-400">
-              I'm always working on new projects and exploring innovative ways to analyze data. 
-              Let's connect and discuss how we can work together.
-            </p>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="#contact"
-              className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 motion-safe:transition-all motion-safe:duration-200 motion-safe:hover:shadow-xl shadow-lg min-h-[44px] focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2"
-              aria-label="Navigate to contact section"
-            >
-              <span>Get In Touch</span>
-              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-            
-            <a 
-              href="https://github.com/shivamoza26"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600 motion-safe:transition-colors motion-safe:duration-200 min-h-[44px] focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2"
-              aria-label="View all projects on GitHub"
-            >
-              <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-              </svg>
-              View All Projects
-            </a>
-          </div>
+          )}
         </div>
       </div>
-
-      <style jsx>{`
-        @media (prefers-reduced-motion: reduce) {
-          * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };

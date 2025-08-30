@@ -27,8 +27,13 @@ const ProjectCard = ({ title, description, tech, github, demo, image }) => {
           {title}
         </h3>
         
-        {/* Description - 2 line clamp */}
-        <p className="text-gray-500 dark:text-gray-400 mb-4 line-clamp-2 leading-relaxed">
+        {/* Description - using inline styles for line-clamp */}
+        <p className="text-gray-500 dark:text-gray-400 mb-4 leading-relaxed" style={{
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden'
+        }}>
           {description}
         </p>
         
@@ -81,15 +86,6 @@ const ProjectCard = ({ title, description, tech, github, demo, image }) => {
           )}
         </div>
       </div>
-      
-      <style jsx>{`
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-      `}</style>
     </article>
   );
 };
