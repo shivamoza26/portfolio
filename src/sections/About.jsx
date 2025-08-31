@@ -28,7 +28,7 @@ const About = () => {
   const highlights = [
     {
       title: 'Education',
-      description: 'Bachelor\'s in Computer Science with focus on Data Analytics and Statistical Methods.',
+      description: 'Pursuing Bachelor of Engineering in Information Technology from Thakur College of Engineering and Technology.',
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -61,13 +61,13 @@ const About = () => {
     <section 
       id="about" 
       ref={sectionRef}
-      className="py-20 bg-white dark:bg-gray-900"
+      className="py-12 bg-white dark:bg-gray-900"
     >
       <div className="max-w-6xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           {/* Section Heading */}
           <h2 
-            className={`text-4xl font-semibold text-gray-900 dark:text-gray-200 mb-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out ${
+            className={`text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-700 to-purple-700 dark:from-blue-600 dark:to-purple-600 bg-clip-text text-transparent motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{ transitionDelay: '200ms' }}

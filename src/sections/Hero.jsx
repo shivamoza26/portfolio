@@ -78,13 +78,13 @@ const Hero = () => {
             
             {/* Main Heading */}
             <h1 
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-gray-200 leading-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
               style={{ 
                 animationDelay: '600ms',
                 animation: isVisible ? 'fadeInUp 0.6s ease-out forwards' : 'none'
               }}
             >
-              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-700 to-purple-700 dark:from-blue-600 dark:to-purple-600 bg-clip-text text-transparent">
                 Shivam Oza
               </span>
             </h1>

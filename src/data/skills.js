@@ -42,39 +42,3 @@ export const skillsData = {
     { name: "Apache Airflow", level: 70, icon: "🌪️", experience: "1+ years" }
   ]
 };
-
-export const certifications = [
-  {
-    name: "AWS Certified Data Analytics - Specialty",
-    issuer: "Amazon Web Services",
-    date: "2023",
-    icon: "☁️"
-  },
-  {
-    name: "Microsoft Azure Data Scientist Associate",
-    issuer: "Microsoft",
-    date: "2022",
-    icon: "🌩️"
-  },
-  {
-    name: "Google Analytics Individual Qualification", 
-    issuer: "Google",
-    date: "2022",
-    icon: "📊"
-  },
-  {
-    name: "Tableau Desktop Specialist",
-    issuer: "Tableau",
-    date: "2021",
-    icon: "📈"
-  }
-];
-
-export const achievements = [
-  "3+ years of professional data science experience",
-  "Led data-driven initiatives resulting in 25% revenue increase",
-  "Developed ML models with 95%+ accuracy rates",
-  "Mentored 5+ junior data scientists",
-  "Published 5+ technical articles on data science topics",
-  "Speaker at 3 data science conferences"
-];

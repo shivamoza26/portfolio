@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import ProjectCard from '../components/ProjectCard';
 import { projects } from '../data/projects';
+import { skillsData } from '../data/skills';
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -86,13 +87,13 @@ const Projects = () => {
     <section 
       id="projects" 
       ref={sectionRef}
-      className="py-20 bg-white dark:bg-gray-900"
+      className="py-12 bg-white dark:bg-gray-900"
     >
       <div className="max-w-6xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           {/* Section Heading */}
           <h2 
-            className={`text-4xl font-semibold text-gray-900 dark:text-gray-200 mb-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out ${
+            className={`text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-700 to-purple-700 dark:from-blue-600 dark:to-purple-600 bg-clip-text text-transparent motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{ transitionDelay: '200ms' }}
@@ -218,6 +219,25 @@ const Projects = () => {
               </p>
             </div>
           )}
+        </div>
+
+        {/* Technical Overview Stats */}
+        <div className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 rounded-xl p-8">
+          <h3 className="text-2xl font-bold text-center mb-8 bg-gradient-to-r from-blue-700 to-purple-700 dark:from-blue-600 dark:to-purple-600 bg-clip-text text-transparent">
+            Technical Overview
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                {Object.values(skillsData).flat().length}+
+              </div>
+              <div className="text-gray-600 dark:text-gray-300">Technologies</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">15+</div>
+              <div className="text-gray-600 dark:text-gray-300">Projects Completed</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

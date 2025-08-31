@@ -11,11 +11,8 @@ const Header = () => {
   const navItems = [
     { href: '#home', label: 'Home', id: 'home' },
     { href: '#about', label: 'About', id: 'about' },
-    { href: '#experience', label: 'Experience', id: 'experience' },
     { href: '#skills', label: 'Skills', id: 'skills' },
     { href: '#projects', label: 'Projects', id: 'projects' },
-    { href: '#articles', label: 'Articles', id: 'articles' },
-    { href: '#testimonials', label: 'Testimonials', id: 'testimonials' },
     { href: '#contact', label: 'Contact', id: 'contact' },
   ];
 
@@ -240,11 +237,11 @@ const Header = () => {
         aria-label="Main navigation"
       >
         {/* Logo */}
-        <div className="text-2xl font-bold text-gray-900 dark:text-gray-200">
+        <div className="text-2xl font-bold">
           <a 
             href="#home" 
             onClick={(e) => handleNavClick(e, '#home')}
-            className="focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 rounded-lg"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-blue-600 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 rounded-lg"
           >
             Shivam Oza
           </a>

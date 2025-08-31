@@ -4,11 +4,8 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Hero from './sections/Hero';
 import About from './sections/About';
-import Experience from './sections/Experience';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
-import Articles from './sections/Articles';
-import Testimonials from './sections/Testimonials';
 import Contact from './sections/Contact';
 import './index.css';
 
@@ -25,11 +22,8 @@ function App() {
       <main className="pt-20">
         <Hero />
         <About />
-        <Experience />
         <Skills />
         <Projects />
-        <Articles />
-        <Testimonials />
         <Contact />
       </main>
       
