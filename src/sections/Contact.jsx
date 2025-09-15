@@ -25,23 +25,14 @@ const Contact = () => {
   return (
     <section id="contact" className="py-12 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-700 to-purple-700 dark:from-blue-600 dark:to-purple-600 bg-clip-text text-transparent">
-            Let's Work Together
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Ready to transform your data into actionable insights? Let's discuss your project.
-          </p>
-        </div>
-
         <div className="max-w-4xl mx-auto">
           <div className="space-y-8">
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-700 to-purple-700 dark:from-blue-600 dark:to-purple-600 bg-clip-text text-transparent">
                 Get In Touch
-              </h3>
+              </h2>
               <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto">
-                I'm always excited to work on new data science projects and help businesses 
+                I'm always excited to work on new projects and help businesses 
                 make data-driven decisions.
               </p>
             </div>
