@@ -26,8 +26,11 @@ const Skills = () => {
     };
   }, []);
 
-  // Get all skills from all categories
-  const allSkills = Object.values(skillsData).flat();
+  // Get skills from only 3 main categories
+  const selectedCategories = ["Programming Languages", "Data Science & ML", "Data Tools & Libraries"];
+  const selectedSkills = selectedCategories.flatMap(category => 
+    skillsData[category] ? skillsData[category].slice(0, 5) : []
+  );
 
   const SkillCard = ({ skill, index }) => (
     <div
@@ -64,9 +67,9 @@ const Skills = () => {
           </p>
         </div>
 
-        {/* Simplified Skills Grid */}
+        {/* Skills Grid - 3 Categories Only */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-          {allSkills.slice(0, 20).map((skill, index) => (
+          {selectedSkills.map((skill, index) => (
             <SkillCard key={skill.name} skill={skill} index={index} />
           ))}
         </div>
