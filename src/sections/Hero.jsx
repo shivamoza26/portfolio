@@ -3,8 +3,36 @@ import React, { useEffect, useState } from 'react';
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [currentGreeting, setCurrentGreeting] = useState('');
+  const [greetingIndex, setGreetingIndex] = useState(0);
+  
+  const greetings = [
+    { message: "Good morning! 🌅", emoji: "👋" },
+    { message: "Good afternoon! ☀️", emoji: "👋" },
+    { message: "Good evening! 🌆", emoji: "👋" },
+    { message: "Hello there! 🌙", emoji: "✨" },
+    { message: "Hello night owl! 🦉", emoji: "🌟" },
+    { message: "Hi! 👋", emoji: "😊" }
+  ];
 
   useEffect(() => {
+    // Set time-based greeting
+    const getTimeBasedGreeting = () => {
+      const hour = new Date().getHours();
+      const timeGreetings = [
+        { start: 5, end: 12, message: "Good morning! 🌅", emoji: "👋" },
+        { start: 12, end: 17, message: "Good afternoon! ☀️", emoji: "👋" },
+        { start: 17, end: 22, message: "Good evening! 🌆", emoji: "👋" },
+        { start: 22, end: 24, message: "Hello there! 🌙", emoji: "✨" },
+        { start: 0, end: 5, message: "Hello night owl! 🦉", emoji: "🌟" }
+      ];
+
+      const greeting = timeGreetings.find(g => hour >= g.start && hour < g.end) || timeGreetings[0];
+      return `${greeting.emoji} ${greeting.message} I'm`;
+    };
+
+    setCurrentGreeting(getTimeBasedGreeting());
+
     // Check for reduced motion preference
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
@@ -22,6 +50,13 @@ const Hero = () => {
       mediaQuery.removeEventListener('change', handleMotionChange);
     };
   }, [prefersReducedMotion]);
+
+  const handleGreetingClick = () => {
+    const nextIndex = (greetingIndex + 1) % greetings.length;
+    setGreetingIndex(nextIndex);
+    const greeting = greetings[nextIndex];
+    setCurrentGreeting(`${greeting.emoji} ${greeting.message} I'm`);
+  };
 
   const handleScrollToProjects = (e) => {
     e.preventDefault();
@@ -64,16 +99,18 @@ const Hero = () => {
               transform: prefersReducedMotion ? 'none' : (isVisible ? 'translateY(0)' : 'translateY(2rem)')
             }}
           >
-            {/* Greeting */}
+            {/* Interactive Dynamic Greeting */}
             <div 
-              className="text-lg text-blue-600 dark:text-blue-400 font-medium"
+              className="text-lg text-blue-600 dark:text-blue-400 font-medium cursor-pointer hover:text-blue-700 dark:hover:text-blue-300 transition-colors select-none"
+              onClick={handleGreetingClick}
+              title="Click to change greeting!"
               style={{ 
                 opacity: prefersReducedMotion ? 1 : 0,
                 animationDelay: prefersReducedMotion ? '0ms' : '400ms',
                 animation: (isVisible && !prefersReducedMotion) ? 'fadeInUp 0.6s ease-out forwards' : 'none'
               }}
             >
-              👋 Hello, I'm
+              {currentGreeting || "👋 Hello, I'm"}
             </div>
             
             {/* Main Heading */}
