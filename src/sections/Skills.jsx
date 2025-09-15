@@ -34,12 +34,12 @@ const Skills = () => {
 
   const SkillCard = ({ skill, index }) => (
     <div
-      className={`flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-sm hover:shadow-md ${
+      className={`flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-sm hover:shadow-lg hover:scale-105 hover:-translate-y-1 cursor-pointer ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
       style={{ transitionDelay: `${index * 50}ms` }}
     >
-      <span className="text-xl">{skill.icon}</span>
+      <span className="text-xl transform hover:scale-110 transition-transform duration-200">{skill.icon}</span>
       <span className="font-medium text-gray-900 dark:text-gray-100">
         {skill.name}
       </span>
